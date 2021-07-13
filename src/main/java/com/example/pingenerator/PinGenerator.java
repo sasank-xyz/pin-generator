@@ -12,7 +12,9 @@ public class PinGenerator implements PinGeneratorInterface {
     public Collection<String> generatePins() {
         ArrayList<String> pins = new ArrayList<>();
 
-        pins.add(generateSinglePin());
+        for (int i=0; i<1000; i++) {
+            pins.add(generateSinglePin());
+        }
 
         return pins;
     }
