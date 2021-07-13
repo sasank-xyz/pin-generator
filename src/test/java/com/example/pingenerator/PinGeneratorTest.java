@@ -30,6 +30,12 @@ public class PinGeneratorTest {
         assert (pinsWithoutNumbers.size() == 0 && !pins.isEmpty());
     }
 
+    @Test
+    public void shouldGenerateUniquePins() {
+        Collection<String> pins = pinGenerator.generatePins();
+        assertEquals(pins.size(), pins.stream().distinct().count());
+    }
+
     private boolean isNotNumber(String input) {
         try {
             Integer.parseInt(input);
