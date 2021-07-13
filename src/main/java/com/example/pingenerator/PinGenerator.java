@@ -11,14 +11,17 @@ public class PinGenerator implements PinGeneratorInterface {
     public Collection<String> generatePins() {
         ArrayList<String> pins = new ArrayList<>();
 
-        //generate a pin
+        pins.add(generateSinglePin());
+
+        return pins;
+    }
+
+    private String generateSinglePin() {
         StringBuilder pin = new StringBuilder();
         for (int i = 0; i < 4; i++) {
             String digit = String.valueOf(random.nextInt(10));
             pin.append(digit);
         }
-
-        pins.add(pin.toString());
-        return pins;
+        return pin.toString();
     }
 }
