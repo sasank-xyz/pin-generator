@@ -1,18 +1,18 @@
 package com.example.pingenerator;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
+import java.util.*;
 
 public class PinGenerator implements PinGeneratorInterface {
     private final Random random = new Random();
     private static final int PIN_LENGTH = 4;
+    private static final int NUMBER_OF_PINS = 1000;
+
 
     @Override
     public Collection<String> generatePins() {
-        ArrayList<String> pins = new ArrayList<>();
+        HashSet<String> pins = new HashSet<>();
 
-        for (int i=0; i<1000; i++) {
+        while (pins.size() < NUMBER_OF_PINS) {
             pins.add(generateSinglePin());
         }
 
