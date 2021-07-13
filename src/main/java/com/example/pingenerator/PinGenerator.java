@@ -2,10 +2,23 @@ package com.example.pingenerator;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
 public class PinGenerator implements PinGeneratorInterface {
+    private final Random random = new Random();
+
     @Override
     public Collection<String> generatePins() {
-        return new ArrayList<>();
+        ArrayList<String> pins = new ArrayList<>();
+
+        //generate a pin
+        StringBuilder pin = new StringBuilder();
+        for (int i = 0; i < 4; i++) {
+            String digit = String.valueOf(random.nextInt(10));
+            pin.append(digit);
+        }
+
+        pins.add(pin.toString());
+        return pins;
     }
 }
