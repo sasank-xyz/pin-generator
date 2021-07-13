@@ -20,7 +20,7 @@ public class PinGeneratorTest {
     public void shouldGeneratePinsOfLength4() {
         Collection<String> pins = pinGenerator.generatePins();
         Collection<String> pinsNotOfLengthFour = pins.stream().filter(n -> n.length() != 4).collect(Collectors.toList());
-        assert(pinsNotOfLengthFour.size() == 0 && !pins.isEmpty());
+        assert (pinsNotOfLengthFour.size() == 0 && !pins.isEmpty());
     }
 
     @Test

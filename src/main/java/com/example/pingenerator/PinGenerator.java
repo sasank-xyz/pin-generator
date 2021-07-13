@@ -1,12 +1,13 @@
 package com.example.pingenerator;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Random;
 
 public class PinGenerator implements PinGeneratorInterface {
-    private final Random random = new Random();
     private static final int PIN_LENGTH = 4;
     private static final int NUMBER_OF_PINS = 1000;
-
+    private final Random random = new Random();
 
     @Override
     public Collection<String> generatePins() {
