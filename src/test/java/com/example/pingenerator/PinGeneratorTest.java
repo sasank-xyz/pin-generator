@@ -22,4 +22,20 @@ public class PinGeneratorTest {
         Collection<String> pinsNotOfLengthFour = pins.stream().filter(n -> n.length() != 4).collect(Collectors.toList());
         assert(pinsNotOfLengthFour.size() == 0 && !pins.isEmpty());
     }
+
+    @Test
+    public void shouldGeneratePinsWithNumbersOnly() {
+        Collection<String> pins = pinGenerator.generatePins();
+        Collection<String> pinsWithoutNumbers = pins.stream().filter(this::isNotNumber).collect(Collectors.toList());
+        assert (pinsWithoutNumbers.size() == 0 && !pins.isEmpty());
+    }
+
+    private boolean isNotNumber(String input) {
+        try {
+            Integer.parseInt(input);
+            return false;
+        } catch (NumberFormatException e) {
+            return true;
+        }
+    }
 }
